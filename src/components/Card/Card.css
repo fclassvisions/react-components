@@ -1,0 +1,24 @@
+.Card {
+    margin: 1em;
+}
+
+.Card .header {
+    padding: 0;
+}
+
+.Card .header img {
+    display: block;
+    border: 3px solid #886644;
+}
+
+.Card .body {
+    background-color: #ddaa77;
+}
+
+.Card .body h2 {
+    background-color: #886644;
+}
+
+.Card .body p {
+    padding: 10px;
+}

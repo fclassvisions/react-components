@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { countryList } from "./components/util/countries";
+import { countryList } from "./util/countries";
 import "./App.css";
 
 class App extends Component {

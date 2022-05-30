@@ -1,19 +1,28 @@
 import React, { Component } from "react";
-import { countryList } from "./util/countries";
 import "./App.css";
-import ListBox from "./components/ListBox/ListBox";
+import Table from "./components/Table/Table";
+
+const COL_NAMES = ["name", "age", "subject", "grade"];
+const LIST = [
+  { name: "Jim", age: 25, subject: "Algebra", grade: 68 },
+  { name: "Tiffany", age: 19, subject: "Biology", grade: 92 },
+  { name: "Harry", age: 21, subject: "World History", grade: 81 },
+  { name: "Gustavo", age: 24, subject: "Political Science", grade: 75 },
+  { name: "Sue", age: 40, subject: "Public Speaking", grade: 89 },
+];
 
 class App extends Component {
   render() {
-    const onSelected = (newSelection, selectedList) => {
-      console.log("ns: ", newSelection);
-      console.log("sl: ", selectedList);
-    };
-
     return (
       <div className="App">
         <div className="center">
-          <ListBox list={countryList} onSelected={onSelected} widthPct={20} />
+          <Table
+            title="Students"
+            list={LIST}
+            colNames={COL_NAMES}
+            onDelete={(student) => console.log(student)}
+            width="50%"
+          />
         </div>
       </div>
     );

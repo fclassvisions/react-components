@@ -1,0 +1,40 @@
+.TabView {
+  width: 100%;
+}
+
+.TabView .title {
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+.TabView .body {
+  padding: 1em;
+}
+
+.TabView .tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TabView .tabs .tab {
+  padding: 5px 1em;
+  border: 1px solid gray;
+}
+
+.TabView .tabs .active-tab {
+  padding: 5px 1em;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  background-color: lightgray;
+}
+
+.TabView .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  background-color: lightgrey;
+}

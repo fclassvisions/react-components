@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import Table from "./components/Table/Table";
+import TabView from "./components/TabView/TabView";
+import ListBox from "./components/ListBox/ListBox";
 
 const COL_NAMES = ["name", "age", "subject", "grade"];
 const LIST = [
@@ -11,17 +13,31 @@ const LIST = [
   { name: "Sue", age: 40, subject: "Public Speaking", grade: 89 },
 ];
 
+const StudentTable = (
+  <Table
+    title="Students"
+    list={LIST}
+    colNames={COL_NAMES}
+    onDelete={(student) => console.log(student)}
+    width="50%"
+  />
+);
+
+const HelloList = <ListBox list={["Hello", "World", "!!!"]} widthPct={40} />;
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="center">
-          <Table
-            title="Students"
-            list={LIST}
-            colNames={COL_NAMES}
-            onDelete={(student) => console.log(student)}
-            width="50%"
+          <TabView
+            title={"Tab Test"}
+            tabs={[
+              { name: "Students", content: StudentTable },
+              { name: "Hello", content: HelloList },
+              { name: "Students 2", content: StudentTable },
+              { name: "Hello 2", content: HelloList },
+            ]}
           />
         </div>
       </div>

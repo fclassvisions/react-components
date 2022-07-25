@@ -19,6 +19,7 @@ function Table({
   onDelete = null,
 }) {
   const [page, setPage] = useState(pageNum);
+  const [formattedList, setFormattedList] = useState(list);
 
   const getColumnLength = () => {
     const hasActions = onDelete;
@@ -33,9 +34,23 @@ function Table({
     setPage(page + 1 < list.length / pageSize ? page + 1 : page);
   };
 
+  const groupBy = (colName) => {
+    const groupedList = {};
+
+    list.forEach((item) => {
+      const value = item[colName] || "Unknown";
+      if (!groupedList[value]) {
+        groupedList[value] = [];
+      }
+      groupedList[value].push(item);
+    });
+
+    setFormattedList(Object.values(groupedList).flat(Infinity));
+  };
+
   return (
     <div style={{ width, boxShadow: "3px 6px 3px #ccc" }}>
-      {list.length > 0 && (
+      {formattedList.length > 0 && (
         <table
           cellSpacing="0"
           style={{ width: "100%", height: height, padding: "5px 10px" }}
@@ -48,14 +63,16 @@ function Table({
             </tr>
             <tr>
               {colNames.map((headerItem, index) => (
-                <th key={index}>{headerItem.toUpperCase()}</th>
+                <th key={index} onClick={() => groupBy(headerItem)}>
+                  {headerItem.toUpperCase()}
+                </th>
               ))}
               {onDelete && <th>Actions</th>}
             </tr>
           </thead>
           <tbody>
             {Object.values(
-              list.slice(pageSize * page, pageSize * page + pageSize)
+              formattedList.slice(pageSize * page, pageSize * page + pageSize)
             ).map((obj, index) => (
               <tr key={index}>
                 {Object.values(obj).map((value, index2) => (

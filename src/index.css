@@ -8,3 +8,17 @@
 .hoverable:hover {
   cursor: pointer;
 }
+
+.btn {
+  color: white;
+  background-color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 200ms ease-in;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #aaa;
+  transition: background-color 200ms ease-in;
+}

@@ -38,6 +38,7 @@ class App extends Component {
               { name: "Students 2", content: StudentTable },
               { name: "Hello 2", content: HelloList },
             ]}
+            editable={true}
           />
         </div>
       </div>

@@ -102,7 +102,6 @@ function Table({
           <tfoot>
             <tr>
               <td colSpan={getColumnLength()} style={{ padding: "10px 0" }}>
-                ;
                 <button className="hoverable" style={btnStyle} onClick={onBack}>
                   Back
                 </button>
